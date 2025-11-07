@@ -37,7 +37,6 @@ print(compute_output_size_1d(input_array, kernel_array))
 def convolve_1d(input_array, kernel_array):
     # Tip: start by initializing an empty output array (you can use your function above to calculate the correct size).
     # Then fill the cells in the array with a loop.
-    output_array = np.array([])
     size = compute_output_size_1d(input_array, kernel_array)
     output_array = np.zeros(size)
     for i in range(size):
@@ -68,7 +67,8 @@ def compute_output_size_2d(input_matrix, kernel_matrix):
 
 input_matrix = np.array([
   [1, 2, 3, 4, 5],
-  [6, 7, 8, 9, 10]
+  [6, 7, 8, 9, 10],
+  [11, 12, 13, 14, 15]
 ])
 
 kernel_matrix = np.array([
@@ -90,7 +90,16 @@ print(compute_output_size_2d(input_matrix, kernel_matrix))
 def convolute_2d(input_matrix, kernel_matrix):
     # Tip: same tips as above, but you might need a nested loop here in order to
     # define which parts of the input matrix need to be multiplied with the kernel matrix.
-    pass
+    output_matrix = np.array([])
+    dimensions = compute_output_size_2d(input_matrix, kernel_matrix)
+    output_matrix = np.zeros(dimensions)
+    for x in range(dimensions[0]):
+      for y in range(dimensions[1]):
+        patch = input_matrix[x:x+kernel_matrix.shape[0], y:y+kernel_matrix.shape[1]]
+        output_matrix[x, y] = np.sum(patch * kernel_matrix)
+    return output_matrix
 
+print(convolute_2d(input_matrix, kernel_matrix))
 
 # -----------------------------------------------
+        
