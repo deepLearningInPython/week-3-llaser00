@@ -41,7 +41,7 @@ def convolve_1d(input_array, kernel_array):
     size = compute_output_size_1d(input_array, kernel_array)
     output_array = np.zeros(size)
     for i in range(size):
-      output_array[i] = (input_array[i:size+i] @ np.flip(kernel_array))
+      output_array[i] = (input_array[i:size+i] @ kernel_array)
     return output_array
 
 # -----------------------------------------------
