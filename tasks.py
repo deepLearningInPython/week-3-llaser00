@@ -90,7 +90,7 @@ print(compute_output_size_2d(input_matrix, kernel_matrix))
 def convolute_2d(input_matrix, kernel_matrix):
     # Tip: same tips as above, but you might need a nested loop here in order to
     # define which parts of the input matrix need to be multiplied with the kernel matrix.
-    
+    pass
 
 
 # -----------------------------------------------
